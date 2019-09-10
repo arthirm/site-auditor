@@ -1,0 +1,28 @@
+{
+  "name": "site-audit",
+  "version": "0.1.0",
+  "description": "A wrapper around puppeteer and lighthoust to run site audits",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests/audit/asset-size-test.js --recursive"
+  },
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "deep-diff": "^1.0.2",
+    "lighthouse": "GoogleChrome/lighthouse#master",
+    "mkdirp": "^0.5.1",
+    "puppeteer": "^1.19.0",
+    "silent-error": "^1.1.1",
+    "source-map-explorer": "^2.0.1",
+    "workerpool": "^5.0.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.0",
+    "prettier": "^1.18.2",
+    "rimraf": "^3.0.0",
+    "tmp": "^0.1.0"
+  }
+}

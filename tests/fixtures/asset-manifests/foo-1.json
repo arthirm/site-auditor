@@ -1,0 +1,17 @@
+{
+  "routeName":"/abc",
+  "filetype":"js",
+  "bundles":[
+     {
+        "bundleName":"fixtures/assets/foo.min.js",
+        "totalBytes":715,
+        "unmappedBytes":36,
+        "files":{
+           "node_modules/browser-pack/_prelude.js":478,
+           "src/bar.js":104,
+           "src/foo.js":97,
+           "<unmapped>":36
+        }
+     }
+  ]
+}
