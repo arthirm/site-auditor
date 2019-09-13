@@ -2,8 +2,8 @@
 
 SiteAudit is a simple tool which does the following,
   * Use lighthouse to audit budgets for your site
-  * Generates asset size manifests to record the size information for future reference
-  * Reports the difference between manifest files for the same page for understanding the increase in asset size for a page.
+  * Generates asset size manifests to record the size information for future reference using source-map-expplorer
+  * Reports the difference between manifest files for the a page to understand the increase in asset size.
 
 ## Usage
 
@@ -65,17 +65,41 @@ module.exports = {
 ## Output example
 
 ```
-Asset size exceeded budget for 'https://www.abc.com/routeA/' type: 'script' by 45.71 KB, Current size: 79.71 KB
-Asset size check passed for 'https://www.abc.com/routeA/' type: 'stylesheet'
+********************************************************************
+*                                                                  *
+*                 Asset Size Audit Results                         *
+*                                                                  *
+********************************************************************
+✖ You exceeded the allowable maximum for a routeA script!
+         Now the size is 23.22 KB with a total increase of 1.70 KB
+✔ Asset size check passed for routeB script!
 
 Asset size failure reason for 'routeA'
+
 Modified Files
 --------------
-File: src/bar.js, Old Size: 0.10 KB, New Size: 0.12 KB, Change: 0.02 KB
-Deleted Files
--------------
-File: src/foo.js, Old Size: 0.09 KB
+
+╔═══════════════╤═══════════╤══════════════╤═════════╗
+║ Files         │ Prev Size │ Current size │ Change  ║
+╟───────────────┼───────────┼──────────────┼─────────╢
+║ src/bar.js    │ 15.66 KB  │ 15.68 KB     │ 0.02 KB ║
+╚═══════════════╧═══════════╧══════════════╧═════════╝
+
 New Files
 ---------
-File: src/foo-bar.js, Size: 0.09 KB
+
+╔════════════════╤═══════════╤══════════════╤═════════╗
+║ Files          │ Prev Size │ Current size │ Change  ║
+╟────────────────┼───────────┼──────────────┼─────────╢
+║ src/foo-bar.js │           │ 1.68 KB      │         ║
+╚════════════════╧═══════════╧══════════════╧═════════╝
+
+Deleted Files
+-------------
+
+╔════════════════╤═══════════╤══════════════╤═════════╗
+║ Files          │ Prev Size │ Current size │ Change  ║
+╟────────────────┼───────────┼──────────────┼─────────╢
+║ src/foo.js     │ 1.68 KB   │              │         ║
+╚════════════════╧═══════════╧══════════════╧═════════╝
 ```

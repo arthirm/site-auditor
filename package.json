@@ -9,8 +9,10 @@
   "license": "",
   "dependencies": {
     "chalk": "^2.4.2",
+    "cli-table3": "^0.5.1",
     "deep-diff": "^1.0.2",
     "lighthouse": "GoogleChrome/lighthouse#master",
+    "log-symbols": "^3.0.0",
     "mkdirp": "^0.5.1",
     "puppeteer": "^1.19.0",
     "silent-error": "^1.1.1",

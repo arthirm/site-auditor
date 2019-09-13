@@ -36,7 +36,7 @@ describe('DiffReporter', function() {
     
   });
 
-  it.only('assetsize reports throws when lighthouse results are not generated properly', function() {
+  it.only('assetsize report throws when lighthouse results are not generated properly', function() {
     const auditResults = {
     audits: { 'performance-budget': { details : {}}}};
     
