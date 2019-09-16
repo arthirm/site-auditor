@@ -42,7 +42,8 @@ module.exports = {
        targetDir: '<dir-to-store-asset-manifests-from-current-run>',
        diffReport: {
         oldManifestDir : '<asset-manifests-dir-path-from-prev-commit-for-comaprison>'
-       }
+       },
+       encoding: '.br'
     },      
     budgets: [
         {
@@ -79,20 +80,20 @@ Asset size failure reason for 'routeA'
 Modified Files
 --------------
 
-╔═══════════════╤═══════════╤══════════════╤═════════╗
-║ Files         │ Prev Size │ Current size │ Change  ║
-╟───────────────┼───────────┼──────────────┼─────────╢
-║ src/bar.js    │ 15.66 KB  │ 15.68 KB     │ 0.02 KB ║
-╚═══════════════╧═══════════╧══════════════╧═════════╝
+╔════════════════╤═════════════════════╤═══════════╤══════════════╤═════════╗
+║ Files          │ Current Bundle      │ Prev Size │ Current size │ Change  ║
+╟────────────────┼─────────────────────┼───────────┼──────────────┼─────────╢
+║ src/foo-bar.js │ /assets/abc.js      │ 15.66 KB  │ 15.68 KB     │ 0.02 KB ║
+╚════════════════╧═════════════════════╧═══════════╧══════════════╧═════════╝
 
 New Files
 ---------
 
-╔════════════════╤═══════════╤══════════════╤═════════╗
-║ Files          │ Prev Size │ Current size │ Change  ║
-╟────────────────┼───────────┼──────────────┼─────────╢
-║ src/foo-bar.js │           │ 1.68 KB      │         ║
-╚════════════════╧═══════════╧══════════════╧═════════╝
+╔════════════════╤═════════════════════╤═══════════╤══════════════╤═════════╗
+║ Files          │ Current Bundle      │ Prev Size │ Current size │ Change  ║
+╟────────────────┼─────────────────────┼───────────┼──────────────┼─────────╢
+║ src/foo-bar.js │ /assets/abc.js      │           │ 1.68 KB      │         ║
+╚════════════════╧═════════════════════╧═══════════╧══════════════╧═════════╝
 
 Deleted Files
 -------------
