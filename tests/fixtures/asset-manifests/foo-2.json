@@ -1,7 +1,7 @@
 {
   "routeName":"/abc",
   "filetype":"js",
-  "bundles":[
+  "files":[
      {
         "bundleName":"fixtures/assets/foo.min.js",
         "totalBytes":715,

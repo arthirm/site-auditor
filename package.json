@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "A wrapper around puppeteer and lighthouse to run site audits",
   "scripts": {
-    "test": "mocha tests/audit/asset-size-test.js"
+    "test": "mocha tests/lib/audit/asset-size-test.js"
   },
   "author": "",
   "license": "",
