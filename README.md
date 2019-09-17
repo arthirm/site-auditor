@@ -8,7 +8,7 @@ SiteAudit is a simple tool which does the following,
 ## Usage
 
 ```js
-const Runner = require('site-audit').Runner;
+const Runner = require('site-audit');
 (async () => {
     try {
         const runner = new Runner('config.js');
