@@ -3,24 +3,24 @@
   "version": "0.0.0",
   "description": "A wrapper around puppeteer and lighthouse to run site audits",
   "scripts": {
-    "test": "mocha tests/lib/audit/asset-size-test.js"
+    "test": "mocha tests/lib/utils-test.js tests/lib/audits/asset-size-test.js"
   },
   "author": "",
   "license": "",
   "dependencies": {
     "chalk": "^2.4.2",
+    "chrome-debugging-client": "^1.0.2",
     "cli-table3": "^0.5.1",
     "deep-diff": "^1.0.2",
-    "lighthouse": "GoogleChrome/lighthouse#master",
+    "devtools-protocol": "^0.0.699881",
     "log-symbols": "^3.0.0",
     "mkdirp": "^0.5.1",
-    "puppeteer": "^1.19.0",
     "silent-error": "^1.1.1",
-    "source-map-explorer": "^2.0.1",
-    "workerpool": "^5.0.0"
+    "source-map-explorer": "^2.0.1"
   },
   "devDependencies": {
     "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
     "mocha": "^6.2.0",
     "prettier": "^1.18.2",
     "rimraf": "^3.0.0",
