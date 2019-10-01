@@ -1,7 +1,7 @@
 # SiteAudit
 
 SiteAudit is a simple tool which does the following,
-  * Use lighthouse to audit budgets for your site
+  * Use chrome-debugging-client to audit budgets for your site
   * Generates asset size manifests to record the size information for future reference using source-map-expplorer
   * Reports the difference between manifest files for the a page to understand the increase in asset size.
 
@@ -26,19 +26,15 @@ const Runner = require('site-audit');
 module.exports = {    
     baseUrl: 'https://www.abc.com',
     debugPort: 9222,
-    workerPoolSize: 5,
-    puppeteer: {
+    pageConfig: '/<setup-puppeteer-script-to-perform-login-and-other-stuff>.js',
+    chrome: {
       headless: true,
-      pageConfig: '/<setup-puppeteer-script-to-perform-login-and-other-stuff>.js',
-    },
-    lighthouse: {
-      emulatedFormFactor: 'desktop', 
-      onlyCategories: ['performance']
+      additionalArguments: [],
     },
     assetManifest: {
        includedTypes: ['Script'],
        buildDir: '<path-where-build-output-of-application-resides>',
-       splitUrlPattern: '<url-pattern>',
+       includeUrlPattern: '<url-pattern>',
        targetDir: '<dir-to-store-asset-manifests-from-current-run>',
        diffReport: {
         oldManifestDir : '<asset-manifests-dir-path-from-prev-commit-for-comaprison>'
@@ -46,19 +42,19 @@ module.exports = {
        encoding: '.br'
     },      
     budgets: [
-        {
-            "path": "/routeA/",
-            "resourceSizes": [
-                {
-                    "resourceType": "script",
-                    "budget": 300
-                },
-                {
-                    "resourceType": "stylesheet",
-                    "budget": 100
-                }
-            ]
-        }
+      {
+        "path": "/routeA/",
+        "resourceSizes": [
+          {
+            "resourceType": "script",
+            "budget": 300
+          },
+          {
+            "resourceType": "stylesheet",
+            "budget": 100
+          }
+        ]
+    }
   ]
 }
 ```
