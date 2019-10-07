@@ -26,7 +26,7 @@ const Runner = require('site-audit');
 module.exports = {    
   baseUrl: 'https://www.abc.com',
   debugPort: 9222,
-  pageConfig: '/<setup-puppeteer-script-to-perform-login-and-other-stuff>.js',
+  pageConfig: '/<setup-script-to-perform-login-and-other-stuff>.js',
   chrome: {
     additionalArguments: [],
     emulatedFormFactor : '<mobile/desktop (default)>',
