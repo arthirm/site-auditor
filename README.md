@@ -1,22 +1,22 @@
 # SiteAudit
 
-SiteAudit is a simple tool which does the following,
-  * Use chrome-debugging-client to audit budgets for your site
-  * Generates asset size manifests to record the size information for future reference using source-map-expplorer
-  * Reports the difference between manifest files for the a page to understand the increase in asset size.
+SiteAudit is a simple tool which,
+  * Uses chrome-debugging-client to audit budgets for your site until a configured marker
+  * Generates asset size manifests to record the size information for future reference using source-map-explorer
+  * Reports the difference between the manifest files for a page to understand the increase in asset size.
 
 ## Usage
 
 ```js
 const Runner = require('site-audit');
 (async () => {
-    try {
-        const runner = new Runner('config.js');
-        await runner.run();
-    } catch(e) {       
-        console.error(e));
-        process.exit(1);
-    }
+  try {
+    const runner = new Runner('config.js');
+    await runner.run();
+  } catch(e) {
+    console.error(e));
+    process.exit(1);
+  }
 })();
 ```
 
@@ -24,36 +24,42 @@ const Runner = require('site-audit');
 
 ```js
 module.exports = {    
-    baseUrl: 'https://www.abc.com',
-    debugPort: 9222,
-    pageConfig: '/<setup-puppeteer-script-to-perform-login-and-other-stuff>.js',
-    chrome: {
-      headless: true,
-      additionalArguments: [],
+  baseUrl: 'https://www.abc.com',
+  debugPort: 9222,
+  pageConfig: '/<setup-puppeteer-script-to-perform-login-and-other-stuff>.js',
+  chrome: {
+    additionalArguments: [],
+    emulatedFormFactor : '<mobile/desktop (default)>',
+    headless: true,
+    marker: '<rum_marker>'
+    userAgent : '<user-agent>',
+  },
+  assetManifest: {
+    includedTypes: ['Script'],
+    buildDir: '<path-where-build-output-of-application-resides>',
+    includeUrlPattern: '<url-pattern>',
+    targetDir: '<dir-to-store-asset-manifests-from-current-run>',
+    diffReport: {
+    oldManifestDir : '<asset-manifests-dir-path-from-prev-commit-for-comaprison>'
     },
-    assetManifest: {
-       includedTypes: ['Script'],
-       buildDir: '<path-where-build-output-of-application-resides>',
-       includeUrlPattern: '<url-pattern>',
-       targetDir: '<dir-to-store-asset-manifests-from-current-run>',
-       diffReport: {
-        oldManifestDir : '<asset-manifests-dir-path-from-prev-commit-for-comaprison>'
-       },
-       encoding: '.br'
-    },      
-    budgets: [
-      {
-        "path": "/routeA/",
-        "resourceSizes": [
-          {
-            "resourceType": "script",
-            "budget": 300
-          },
-          {
-            "resourceType": "stylesheet",
-            "budget": 100
-          }
-        ]
+    encoding: '.br'
+  },
+  budgets: [
+    {
+      "path": "/routeA/",
+      "resourceSizes": [
+        {
+          "resourceType": "script",
+          "budget": 300
+        },
+        {
+          "resourceType": "stylesheet",
+          "budget": 100
+        }
+      ]
+    },
+    {
+      "path": "/routeB/"
     }
   ]
 }
