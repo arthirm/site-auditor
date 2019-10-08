@@ -47,6 +47,7 @@ module.exports = {
   budgets: [
     {
       "path": "/routeA/",
+      "name": "routeA",
       "resourceSizes": [
         {
           "resourceType": "script",
