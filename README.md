@@ -75,7 +75,7 @@ module.exports = {
 *                                                                  *
 ********************************************************************
 ✖ You exceeded the allowable maximum for a routeA script!
-         Now the size is 18.36 KB with a total increase of 0.70 KB
+         Now the size is 43.22 KB with a total increase of 0.70 KB
 ✔ Asset size check passed for routeB script!
 
 Asset size failure reason for 'routeA'
