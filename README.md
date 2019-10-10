@@ -75,7 +75,7 @@ module.exports = {
 *                                                                  *
 ********************************************************************
 ✖ You exceeded the allowable maximum for a routeA script!
-         Now the size is 23.22 KB with a total increase of 1.70 KB
+         Now the size is 18.36 KB with a total increase of 0.70 KB
 ✔ Asset size check passed for routeB script!
 
 Asset size failure reason for 'routeA'
@@ -86,7 +86,7 @@ Modified Files
 ╔════════════════╤═════════════════════╤═══════════╤══════════════╤═════════╗
 ║ Files          │ Current Bundle      │ Prev Size │ Current size │ Change  ║
 ╟────────────────┼─────────────────────┼───────────┼──────────────┼─────────╢
-║ src/foo-bar.js │ /assets/abc.js      │ 15.66 KB  │ 15.68 KB     │ 0.02 KB ║
+║ src/foo.js     │ /assets/abc.js      │ 15.66 KB  │ 15.68 KB     │ 0.02 KB ║
 ╚════════════════╧═════════════════════╧═══════════╧══════════════╧═════════╝
 
 New Files
@@ -95,15 +95,15 @@ New Files
 ╔════════════════╤═════════════════════╤═══════════╤══════════════╤═════════╗
 ║ Files          │ Current Bundle      │ Prev Size │ Current size │ Change  ║
 ╟────────────────┼─────────────────────┼───────────┼──────────────┼─────────╢
-║ src/foo-bar.js │ /assets/abc.js      │           │ 1.68 KB      │         ║
+║ src/foo-bar.js │ /assets/abc.js      │   0 KB    │ 1.68 KB      │ 1.68 KB ║
 ╚════════════════╧═════════════════════╧═══════════╧══════════════╧═════════╝
 
 Deleted Files
 -------------
 
-╔════════════════╤═══════════╤══════════════╤═════════╗
-║ Files          │ Prev Size │ Current size │ Change  ║
-╟────────────────┼───────────┼──────────────┼─────────╢
-║ src/foo.js     │ 1.68 KB   │              │         ║
-╚════════════════╧═══════════╧══════════════╧═════════╝
+╔════════════════╤═════════════════════╤═══════════╤══════════════╤═════════╗
+║ Files          │ Current Bundle      │ Prev Size │ Current size │ Change  ║
+╟────────────────┼─────────────────────┼───────────┼──────────────┼─────────╢
+║ src/bar.js     │                     │  1 KB     │  0 KB        │ - 1 KB  ║
+╚════════════════╧═════════════════════╧═══════════╧══════════════╧═════════╝
 ```
