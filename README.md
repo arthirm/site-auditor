@@ -40,7 +40,7 @@ module.exports = {
     includeUrlPattern: '<url-pattern>',
     targetDir: '<dir-to-store-asset-manifests-from-current-run>',
     diffReport: {
-    oldManifestDir : '<asset-manifests-dir-path-from-prev-commit-for-comaprison>'
+    oldManifestDir : '<asset-manifests-dir-path-from-prev-commit-for-comparison>'
     },
     encoding: '.br'
   },
@@ -58,9 +58,6 @@ module.exports = {
           "budget": 100
         }
       ]
-    },
-    {
-      "path": "/routeB/"
     }
   ]
 }
@@ -76,7 +73,7 @@ module.exports = {
 ********************************************************************
 ✖ You exceeded the allowable maximum for a routeA script!
          Now the size is 43.22 KB with a total increase of 0.70 KB
-✔ Asset size check passed for routeB script!
+✔ Asset size check passed for routeA stylesheet!
 
 Asset size failure reason for 'routeA'
 

@@ -12,7 +12,7 @@
     "chrome-debugging-client": "^1.0.2",
     "cli-table3": "^0.5.1",
     "deep-diff": "^1.0.2",
-    "devtools-protocol": "^0.0.699881",
+    "devtools-protocol": "^0.0.704903",
     "log-symbols": "^3.0.0",
     "mkdirp": "^0.5.1",
     "silent-error": "^1.1.1",
