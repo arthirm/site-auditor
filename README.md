@@ -27,6 +27,8 @@ module.exports = {
   baseUrl: 'https://www.abc.com',
   debugPort: 9222,
   pageConfig: '/<setup-script-to-perform-login-and-other-stuff>.js',
+  includeUrlPattern: '<url-pattern>',
+  excludeUrlPattern: '<url-pattern>',
   chrome: {
     additionalArguments: [],
     emulatedFormFactor : '<mobile/desktop (default)>',
@@ -37,7 +39,6 @@ module.exports = {
   assetManifest: {
     includedTypes: ['Script'],
     buildDir: '<path-where-build-output-of-application-resides>',
-    includeUrlPattern: '<url-pattern>',
     targetDir: '<dir-to-store-asset-manifests-from-current-run>',
     diffReport: {
     oldManifestDir : '<asset-manifests-dir-path-from-prev-commit-for-comparison>'

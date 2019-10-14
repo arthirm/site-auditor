@@ -4,11 +4,13 @@ const path = require('path');
 const chai = require('chai');
 const expect = chai.expect;
 const chaiAsPromised = require('chai-as-promised');
-const { AssetSizeManifestGenerator, DiffReporter, BudgetReport } =  require("../../../lib/audits/asset-size")
+const AssetSizeManifestGenerator = require("../../../lib/audits/asset-size/asset-size-manifest-generator").AssetSizeManifestGenerator;
+const AuditBudget = require("../../../lib/audits/asset-size/audit-budget").AuditBudget;
+const DiffReporter = require("../../../lib/audits/asset-size/diff-reporter").DiffReporter;
 
 describe('Asset size', function() {
 
-  describe('BudgetReport', function() {
+  describe('AuditBudget', function() {
     let config, page;
     beforeEach(function() {
       config = {
@@ -39,8 +41,8 @@ describe('Asset size', function() {
         size: 1000   
       }];
 
-      const budgetReport = new BudgetReport(page, networkRequests);
-      const failedAudits = budgetReport.report();
+      const auditBudget = new AuditBudget(page, networkRequests);
+      const failedAudits = auditBudget.report();
 
       expect(failedAudits[0].sizeOverBudget).equals(976);
       expect(failedAudits[0].size).equals(2000);
@@ -53,8 +55,8 @@ describe('Asset size', function() {
         url: '/abc',
         size: 1000
       }];
-      const budgetReport = new BudgetReport(page, networkRequests);
-      expect(function() { budgetReport.report() }).to.contain(/Warning: Budget result is undefined*/);
+      const auditBudget = new AuditBudget(page, networkRequests);
+      expect(function() { auditBudget.report() }).to.contain(/Warning: Budget result is undefined*/);
     });
   });
 
@@ -63,10 +65,10 @@ describe('Asset size', function() {
     let config, page;
     beforeEach(function() {
       config = {
+        includeUrlPattern: '/pattern',
         assetManifest : {
           includedTypes: ['script'],
           buildDir: path.join(__dirname, '../../fixtures/assets'),
-          includeUrlPattern: '/pattern',
           currentManifestDir : path.join(__dirname, '../../fixtures/current-manifests/'),
         }
       };
@@ -132,6 +134,9 @@ describe('Asset size', function() {
     let config, page;
     beforeEach(function() {
       config = {
+        budgets: [{
+          "path": "/foo",
+        }],
         assetManifest : {
           currentManifestDir : path.join(__dirname, '../../fixtures/current-manifests/'),
           diffReport: {
