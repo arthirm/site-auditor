@@ -4,42 +4,50 @@ const path = require('path');
 const chai = require('chai');
 const expect = chai.expect;
 const chaiAsPromised = require('chai-as-promised');
-const AssetSizeManifestGenerator = require("../../../lib/audits/asset-size/asset-size-manifest-generator").AssetSizeManifestGenerator;
-const AuditBudget = require("../../../lib/audits/asset-size/audit-budget").AuditBudget;
-const DiffReporter = require("../../../lib/audits/asset-size/diff-reporter").DiffReporter;
+const AssetSizeManifestGenerator = require('../../../lib/audits/asset-size/asset-size-manifest-generator')
+  .AssetSizeManifestGenerator;
+const AuditBudget = require('../../../lib/audits/asset-size/audit-budget')
+  .AuditBudget;
+const DiffReporter = require('../../../lib/audits/asset-size/diff-reporter')
+  .DiffReporter;
 
 describe('Asset size', function() {
-
   describe('AuditBudget', function() {
     let config, page;
     beforeEach(function() {
       config = {
-        budgets: [{
-          "path": "/foo",
-          "resourceSizes": [{
-          "resourceType": "script",
-           "budget": 1 // Size is in KB
-          }]
-        }]
+        budgets: [
+          {
+            path: '/foo',
+            resourceSizes: [
+              {
+                resourceType: 'script',
+                budget: 1, // Size is in KB
+              },
+            ],
+          },
+        ],
       };
       page = {
         url: 'base/foo',
         relativePath: '/foo',
-        config
+        config,
       };
     });
 
     it('reports the resource that went over budget', function() {
-      let networkRequests = [{
-        resourceType: 'script',
-        url: '/abc',
-        size: 1000
-      },
-      {
-        resourceType: 'script',
-        url: '/bar',
-        size: 1000   
-      }];
+      let networkRequests = [
+        {
+          resourceType: 'script',
+          url: '/abc',
+          size: 1000,
+        },
+        {
+          resourceType: 'script',
+          url: '/bar',
+          size: 1000,
+        },
+      ];
 
       const auditBudget = new AuditBudget(page, networkRequests);
       const failedAudits = auditBudget.report();
@@ -50,104 +58,144 @@ describe('Asset size', function() {
     });
 
     it('handles when request does not contain the resource for which budgeting is defined', function() {
-      let networkRequests = [{
-        resourceType: 'images',
-        url: '/abc',
-        size: 1000
-      }];
+      let networkRequests = [
+        {
+          resourceType: 'images',
+          url: '/abc',
+          size: 1000,
+        },
+      ];
       const auditBudget = new AuditBudget(page, networkRequests);
-      expect(function() { auditBudget.report() }).to.contain(/Warning: Budget result is undefined*/);
+      expect(function() {
+        auditBudget.report();
+      }).to.contain(/Warning: Budget result is undefined*/);
     });
   });
 
   describe('AssetSizeManifestGenerator', function() {
-
     let config, page;
     beforeEach(function() {
       config = {
         includeUrlPattern: '/pattern',
-        assetManifest : {
+        assetManifest: {
           includedTypes: ['script'],
           buildDir: path.join(__dirname, '../../fixtures/assets'),
-          currentManifestDir : path.join(__dirname, '../../fixtures/current-manifests/'),
-        }
+          currentManifestDir: path.join(
+            __dirname,
+            '../../fixtures/current-manifests/'
+          ),
+        },
       };
       page = {
         url: 'base/foo',
         relativePath: '/foo',
-        config
+        config,
       };
     });
 
     it('converts the network requests to disk paths and respects filters', function() {
-      let networkRequests = [{
+      let networkRequests = [
+        {
           resourceType: 'script',
           url: 'http://www.page.com/bar/abc',
-          size: 1000
-        }, {
+          size: 1000,
+        },
+        {
           resourceType: 'script',
           url: 'http://www.page.com/pattern/abcd',
-          size: 1000
-        }, {
+          size: 1000,
+        },
+        {
           resourceType: 'image',
           url: 'http://www.page.com/foo/abcd',
-          size: 1000
-      }];
-      const manifestGenerator = new AssetSizeManifestGenerator(page, "js", networkRequests);
+          size: 1000,
+        },
+      ];
+      const manifestGenerator = new AssetSizeManifestGenerator(
+        page,
+        'js',
+        networkRequests
+      );
       const paths = manifestGenerator.networkRequestToPaths();
-      expect(paths.length).equals(1)
+      expect(paths.length).equals(1);
       expect(paths[0]).contains('fixtures/assets/abcd');
     });
 
     it('generates a manifest file when a valid source map is present', async function() {
-      let networkRequests = [{
-        resourceType: 'script',
-        url: 'http://www.page.com/pattern/foo.min.js',
-        size: 1000
-      }];
+      let networkRequests = [
+        {
+          resourceType: 'script',
+          url: 'http://www.page.com/pattern/foo.min.js',
+          size: 1000,
+        },
+      ];
 
-      const manifestGenerator = new AssetSizeManifestGenerator(page, 'js', networkRequests);
+      const manifestGenerator = new AssetSizeManifestGenerator(
+        page,
+        'js',
+        networkRequests
+      );
       const explorerResult = await manifestGenerator.createAssetObjForRoute();
 
-      expect(explorerResult.bundles[0].bundleName).contains('assets/foo.min.js');
+      expect(explorerResult.bundles[0].bundleName).contains(
+        'assets/foo.min.js'
+      );
       expect(explorerResult.bundles[0].files['src/bar.js']).equals(104);
       // check the size is sorted
-      expect(Object.values(explorerResult.bundles[0].files)).to.have.ordered.members([478, 104, 97, 36]);
-    });
-  
-    it('throws when source map is not found for the js file', async function() {
-      chai.use(chaiAsPromised);
-      page.relativePath = '/bar'
-      let networkRequests = [{
-        resourceType: 'script',
-        url: 'http://www.page.com/pattern/bar.min.js',
-        size: 1000
-      }];
-      const manifestGenerator = new AssetSizeManifestGenerator(page, 'js', networkRequests);
-      await expect(manifestGenerator.createAssetObjForRoute()).to.be.rejectedWith("Error: Couldn't run source map explorer for the page 'bar'");
+      expect(
+        Object.values(explorerResult.bundles[0].files)
+      ).to.have.ordered.members([478, 104, 97, 36]);
     });
 
+    it('throws when source map is not found for the js file', async function() {
+      chai.use(chaiAsPromised);
+      page.relativePath = '/bar';
+      let networkRequests = [
+        {
+          resourceType: 'script',
+          url: 'http://www.page.com/pattern/bar.min.js',
+          size: 1000,
+        },
+      ];
+      const manifestGenerator = new AssetSizeManifestGenerator(
+        page,
+        'js',
+        networkRequests
+      );
+      await expect(
+        manifestGenerator.createAssetObjForRoute()
+      ).to.be.rejectedWith(
+        "Error: Couldn't run source map explorer for the page 'bar'"
+      );
+    });
   });
 
   describe('DiffReporter', function() {
-
     let config, page;
     beforeEach(function() {
       config = {
-        budgets: [{
-          "path": "/foo",
-        }],
-        assetManifest : {
-          currentManifestDir : path.join(__dirname, '../../fixtures/current-manifests/'),
-          diffReport: {
-            baseManifestDir: path.join(__dirname, '../../fixtures/base-manifests/')
+        budgets: [
+          {
+            path: '/foo',
           },
-        }
+        ],
+        assetManifest: {
+          currentManifestDir: path.join(
+            __dirname,
+            '../../fixtures/current-manifests/'
+          ),
+          diffReport: {
+            baseManifestDir: path.join(
+              __dirname,
+              '../../fixtures/base-manifests/'
+            ),
+          },
+        },
       };
       page = {
         url: 'base/foo',
         relativePath: '/foo',
-        config
+        config,
       };
     });
 
@@ -167,5 +215,4 @@ describe('Asset size', function() {
       expect(results.N[0].bundleName[0]).to.equal('fixtures/assets/foo.min.js');
     });
   });
-
 });

@@ -17,16 +17,16 @@ class StaticServer {
       this._serve(req, res, done);
     });
     this._server.listen(3006);
-    console.log("Static server started");
+    console.log('Static server started');
   }
 
   stop() {
-    if(this._server) {
+    if (this._server) {
       this._server.close();
     }
   }
 }
 
 module.exports = {
-  StaticServer
-}
+  StaticServer,
+};

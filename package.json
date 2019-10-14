@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "A tool to audit asset size for your app and report failures",
   "scripts": {
+    "prettier": "prettier --check '{lib,tests}/**/*.js' --write", 
     "test": "mocha tests/lib/*-test.js tests/lib/audits/asset-size-test.js"
   },
   "bin": {

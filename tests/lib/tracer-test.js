@@ -11,11 +11,10 @@ describe('Tracer', function() {
   let config, page;
   this.timeout(20000);
   beforeEach(function() {
-    config = {
-    };
+    config = {};
     page = {
       url: 'http://localhost:3006/index.html',
-      config
+      config,
     };
 
     //Start the static http server
@@ -23,14 +22,14 @@ describe('Tracer', function() {
   });
 
   afterEach(function() {
-      server.stop();
+    server.stop();
   });
 
   it('traces the results until the given mark', async function() {
     page.config.chrome = {
       marker: 'mark_end',
-      headless: true
-    }
+      headless: true,
+    };
     const tracer = new Tracer(page);
     const pageResult = await tracer.trace();
     expect(pageResult.length).equals(2);
@@ -42,7 +41,8 @@ describe('Tracer', function() {
     chai.use(chaiAsPromised);
     let cb = {};
     const tracer = new Tracer(page, cb);
-    await expect(tracer.trace()).to.be.rejectedWith("Network Request could not be captured. TypeError: this._cb is not a function");
+    await expect(tracer.trace()).to.be.rejectedWith(
+      'Network Request could not be captured. TypeError: this._cb is not a function'
+    );
   });
-
 });
