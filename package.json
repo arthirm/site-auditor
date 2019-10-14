@@ -1,7 +1,7 @@
 {
   "name": "site-audit",
   "version": "0.0.0",
-  "description": "A wrapper around puppeteer and lighthouse to run site audits",
+  "description": "A tool to audit asset size for your app and report failures",
   "scripts": {
     "test": "mocha tests/lib/*-test.js tests/lib/audits/asset-size-test.js"
   },
