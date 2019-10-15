@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "description": "A tool to audit asset size for your app and report failures",
   "scripts": {
-    "prettier": "prettier --check '{lib,tests}/**/*.js' --write", 
+    "lint": "eslint .",
+    "prettier": "prettier --check '{lib,tests}/**/*.js' --write",
     "test": "mocha tests/lib/*-test.js tests/lib/audits/asset-size-test.js"
   },
   "bin": {
@@ -17,6 +18,11 @@
     "cli-table3": "^0.5.1",
     "deep-diff": "^1.0.2",
     "devtools-protocol": "^0.0.704903",
+    "eslint": "^6.5.1",
+    "eslint-plugin-chai": "^0.0.1",
+    "eslint-plugin-chai-expect": "^2.0.1",
+    "eslint-plugin-mocha": "^6.2.0",
+    "eslint-plugin-node": "^10.0.0",
     "esm": "^3.2.25",
     "log-symbols": "^3.0.0",
     "mkdirp": "^0.5.1",

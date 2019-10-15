@@ -1,0 +1,4 @@
+tests/fixtures
+
+# dependencies
+/node_modules/

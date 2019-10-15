@@ -37,7 +37,7 @@ module.exports = {
     userAgent : '<user-agent>',
   },
   assetManifest: {
-    includedTypes: ['Script'],
+    includedTypes: ['script'],
     buildDir: '<path-where-build-output-of-application-resides>',
     targetDir: '<dir-to-store-asset-manifests-from-current-run>',
     diffReport: {
