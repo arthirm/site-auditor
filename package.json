@@ -5,7 +5,7 @@
   "scripts": {
     "lint": "eslint .",
     "prettier": "prettier --check '{lib,tests}/**/*.js' --write",
-    "test": "mocha tests/lib/*-test.js tests/lib/audits/asset-size-test.js"
+    "test": "mocha tests/lib/*-test.js tests/lib/audits/asset-size/*-test.js"
   },
   "bin": {
     "site-audit": "bin/site-audit"
@@ -14,7 +14,7 @@
   "license": "MIT",
   "dependencies": {
     "chalk": "^2.4.2",
-    "chrome-debugging-client": "^1.0.2",
+    "chrome-debugging-client": "^1.0.3",
     "cli-table3": "^0.5.1",
     "deep-diff": "^1.0.2",
     "devtools-protocol": "^0.0.704903",
@@ -39,5 +39,6 @@
     "rimraf": "^3.0.0",
     "serve-static": "^1.14.1",
     "tmp": "^0.1.0"
-  }
+  },
+  "engine": "node >= 10"
 }

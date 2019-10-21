@@ -7,6 +7,14 @@ SiteAudit is a simple tool which,
 
 ## Usage
 
+Using command line:
+
+```js
+audit --config-path config.js
+```
+
+To use it in code:
+
 ```js
 const Runner = require('site-audit');
 (async () => {
@@ -43,7 +51,7 @@ module.exports = {
     diffReport: {
     oldManifestDir : '<asset-manifests-dir-path-from-prev-commit-for-comparison>'
     },
-    encoding: '.br'
+    encoding: 'br'
   },
   budgets: [
     {
