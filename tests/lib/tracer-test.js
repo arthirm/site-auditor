@@ -1,13 +1,13 @@
 'use strict';
 
-const Tracer = require('../../lib/tracer').Tracer;
+const Tracer = require('../../lib/tracer');
 const chai = require('chai');
 const expect = chai.expect;
 const chaiAsPromised = require('chai-as-promised');
 const StaticServer = require('./utils/http-server').StaticServer;
-const server = new StaticServer();
 
 describe('Tracer', function() {
+  let server;
   let config, page;
   this.timeout(20000);
   beforeEach(function() {
@@ -16,7 +16,7 @@ describe('Tracer', function() {
       url: 'http://localhost:3006/index.html',
       config,
     };
-
+    server = new StaticServer();
     //Start the static http server
     server.start();
   });
