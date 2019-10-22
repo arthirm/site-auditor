@@ -80,17 +80,20 @@ module.exports = {
 *                 Asset Size Audit Results                         *
 *                                                                  *
 ********************************************************************
+
+Audit summary for routeA
+
 ✖ You exceeded the allowable maximum for a routeA script!
          Now the size is 43.22 KB with a total increase of 0.70 KB
 ✔ Asset size check passed for routeA stylesheet!
 
-Asset size failure reason for 'routeA'
+Asset size diff report for 'routeA' (Uncompressed size)
 
 Modified Files
 --------------
 
 ╔════════════════╤═════════════════════╤═══════════╤══════════════╤═════════╗
-║ Files          │ Current Bundle      │ Prev Size │ Current size │ Change  ║
+║ Files          │  Bundle Name        │ Prev Size │ Current size │ Change  ║
 ╟────────────────┼─────────────────────┼───────────┼──────────────┼─────────╢
 ║ src/foo.js     │ /assets/abc.js      │ 15.66 KB  │ 15.68 KB     │ 0.02 KB ║
 ╚════════════════╧═════════════════════╧═══════════╧══════════════╧═════════╝
@@ -99,7 +102,7 @@ New Files
 ---------
 
 ╔════════════════╤═════════════════════╤═══════════╤══════════════╤═════════╗
-║ Files          │ Current Bundle      │ Prev Size │ Current size │ Change  ║
+║ Files          │  Bundle Name        │ Prev Size │ Current size │ Change  ║
 ╟────────────────┼─────────────────────┼───────────┼──────────────┼─────────╢
 ║ src/foo-bar.js │ /assets/abc.js      │   0 KB    │ 1.68 KB      │ 1.68 KB ║
 ╚════════════════╧═════════════════════╧═══════════╧══════════════╧═════════╝
@@ -108,8 +111,8 @@ Deleted Files
 -------------
 
 ╔════════════════╤═════════════════════╤═══════════╤══════════════╤═════════╗
-║ Files          │ Current Bundle      │ Prev Size │ Current size │ Change  ║
+║ Files          │  Bundle Name        │ Prev Size │ Current size │ Change  ║
 ╟────────────────┼─────────────────────┼───────────┼──────────────┼─────────╢
-║ src/bar.js     │                     │  1 KB     │  0 KB        │ - 1 KB  ║
+║ src/bar.js     │  /assets/abc.js     │  1 KB     │  0 KB        │ - 1 KB  ║
 ╚════════════════╧═════════════════════╧═══════════╧══════════════╧═════════╝
 ```
