@@ -1,7 +1,7 @@
 # SiteAudit
 
 SiteAudit is a simple tool which,
-  * Uses chrome-debugging-client to audit budgets for your site until a configured marker
+  * Uses chrome-debugging-client to audit budgets for your site until a configured marker or until LoadEventfired
   * Generates asset size manifests to record the size information for future reference using source-map-explorer
   * Reports the difference between the manifest files for a page to understand the increase in asset size.
 
@@ -10,7 +10,7 @@ SiteAudit is a simple tool which,
 Using command line:
 
 ```js
-audit --config-path config.js
+npx audit --config-path config.js
 ```
 
 To use it in code:
@@ -41,7 +41,7 @@ module.exports = {
     additionalArguments: [],
     emulatedFormFactor : '<mobile/desktop (default)>',
     headless: true,
-    marker: '<rum_marker>'
+    marker: '<rum_marker>' // (optional) if not present tracing will be done until LoadEventFired
     userAgent : '<user-agent>',
   },
   assetManifest: {
