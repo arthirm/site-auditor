@@ -7,10 +7,12 @@ SiteAuditor is a simple tool which,
 
 ## Usage
 
+Note: Make sure the configured site/page is reachable before using the tool.
+
 Using command line:
 
 ```js
-npx audit --config-path config.js
+npx site-auditor --config-path config.js
 ```
 
 To use it in code:
