@@ -1,6 +1,6 @@
-# SiteAudit
+# SiteAuditor
 
-SiteAudit is a simple tool which,
+SiteAuditor is a simple tool which,
   * Uses chrome-debugging-client to audit budgets for your site until a configured marker or until LoadEventfired
   * Generates asset size manifests to record the size information for future reference using source-map-explorer
   * Reports the difference between the manifest files for a page to understand the increase in asset size.
@@ -16,7 +16,7 @@ npx audit --config-path config.js
 To use it in code:
 
 ```js
-const Runner = require('site-audit');
+const Runner = require('site-auditor');
 (async () => {
   try {
     const runner = new Runner('config.js');
