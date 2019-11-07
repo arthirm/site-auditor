@@ -39,6 +39,7 @@ module.exports = {
   pageConfig: '/<setup-script-to-perform-login-and-other-stuff>.js',
   includeUrlPattern: '<url-pattern>',
   excludeUrlPattern: '<url-pattern>',
+  printOnlyFailedPages: true,
   chrome: {
     additionalArguments: [],
     emulatedFormFactor : '<mobile/desktop (default)>',
@@ -83,38 +84,24 @@ module.exports = {
 *                                                                  *
 ********************************************************************
 
-Audit summary for routeA
+Audit Summary
+╔══════╤════════╤══════════════╤═════════════════════════════╤════════════════════════════╤═══════════════════════════╤══════════╗
+║ Page │ Type   │ Exceeded/Not │ Current size (Uncompressed) │ Size Limits (Uncompressed) │ Difference (Uncompressed) │ Url      ║
+╟──────┼────────┼──────────────┼─────────────────────────────┼────────────────────────────┼───────────────────────────┼──────────╢
+║ foo  │ script │ Exceeded     │ 10.74 KB                    │ 10 KB                      │ 0.74 KB                   │ base/foo ║
+╚══════╧════════╧══════════════╧═════════════════════════════╧════════════════════════════╧═══════════════════════════╧══════════╝
 
-✖ You exceeded the allowable maximum for a routeA script!
-         Now the size is 43.22 KB with a total increase of 0.70 KB
-✔ Asset size check passed for routeA stylesheet!
 
-Asset size diff report for 'routeA' (Uncompressed size)
+Asset size diff report for 'routeA'
 
-Modified Files
---------------
+╔════════════════╤════════════════════════════╤═══════════╤═══════════════╤══════════╗
+║ Files          │ Bundle Name                │ Prev Size │ Current size  │ Change   ║
+╟────────────────┼────────────────────────────┼───────────┼───────────────┼──────────╢
+║ src/foo-bar.js │ fixtures/assets/foo.min.js │ N/A       │ 0.09 KB (New) │ 0.09 KB  ║
+╟────────────────┼────────────────────────────┼───────────┼───────────────┼──────────╢
+║ src/bar.js     │ fixtures/assets/foo.min.js │ 0.10 KB   │ 0.12 KB       │ 0.02 KB  ║
+╟────────────────┼────────────────────────────┼───────────┼───────────────┼──────────╢
+║ src/foo.js     │ fixtures/assets/foo.min.js │ 0.09 KB   │ Deleted       │ -0.09 KB ║
+╚════════════════╧════════════════════════════╧═══════════╧═══════════════╧══════════╝
 
-╔════════════════╤═════════════════════╤═══════════╤══════════════╤═════════╗
-║ Files          │  Bundle Name        │ Prev Size │ Current size │ Change  ║
-╟────────────────┼─────────────────────┼───────────┼──────────────┼─────────╢
-║ src/foo.js     │ /assets/abc.js      │ 15.66 KB  │ 15.68 KB     │ 0.02 KB ║
-╚════════════════╧═════════════════════╧═══════════╧══════════════╧═════════╝
-
-New Files
----------
-
-╔════════════════╤═════════════════════╤═══════════╤══════════════╤═════════╗
-║ Files          │  Bundle Name        │ Prev Size │ Current size │ Change  ║
-╟────────────────┼─────────────────────┼───────────┼──────────────┼─────────╢
-║ src/foo-bar.js │ /assets/abc.js      │   0 KB    │ 1.68 KB      │ 1.68 KB ║
-╚════════════════╧═════════════════════╧═══════════╧══════════════╧═════════╝
-
-Deleted Files
--------------
-
-╔════════════════╤═════════════════════╤═══════════╤══════════════╤═════════╗
-║ Files          │  Bundle Name        │ Prev Size │ Current size │ Change  ║
-╟────────────────┼─────────────────────┼───────────┼──────────────┼─────────╢
-║ src/bar.js     │  /assets/abc.js     │  1 KB     │  0 KB        │ - 1 KB  ║
-╚════════════════╧═════════════════════╧═══════════╧══════════════╧═════════╝
 ```

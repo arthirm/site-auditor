@@ -11,7 +11,7 @@ describe('DiffReporter', function() {
     config = {
       budgets: [
         {
-          path: '/foo',
+          path: '/foo'
         },
       ],
       assetManifest: {
@@ -37,16 +37,17 @@ describe('DiffReporter', function() {
   it('reports diff between 2 manifest files', function() {
     const diffFinder = new DiffReporter(page, 'script');
     const results = diffFinder.diffReport();
-
+    // The results array is sorted by change
     // reports edited files
-    expect(results.E[0].file).to.equal('src/bar.js');
-    expect(results.E[0].bundleName).to.equal('fixtures/assets/foo.min.js');
+    expect(results[1].file).to.equal('src/bar.js');
+    expect(results[1].bundleName).to.equal('fixtures/assets/foo.min.js');
 
     // reports deleted files
-    expect(results.D[0].file).to.equal('src/foo.js');
+    expect(results[2].file).to.equal('src/foo.js');
 
     // reports new files
-    expect(results.N[0].file).to.equal('src/foo-bar.js');
-    expect(results.N[0].bundleName).to.equal('fixtures/assets/foo.min.js');
+    expect(results[0].file).to.equal('src/foo-bar.js');
+    expect(results[0].bundleName).to.equal('fixtures/assets/foo.min.js');
+
   });
 });

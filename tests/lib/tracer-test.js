@@ -1,6 +1,6 @@
 'use strict';
 
-const Tracer = require('../../lib/tracer');
+const Tracer = require('../../lib/trace/tracer');
 const chai = require('chai');
 const expect = chai.expect;
 const chaiAsPromised = require('chai-as-promised');
