@@ -1,6 +1,6 @@
 {
   "name": "site-auditor",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A tool to audit asset size for your app and report failures",
   "scripts": {
     "lint": "eslint .",
@@ -18,7 +18,7 @@
     "cli-table3": "^0.5.1",
     "deep-diff": "^1.0.2",
     "devtools-protocol": "^0.0.704903",
-    "eslint": "^6.5.1",
+    "eslint": "^5.10.0",
     "eslint-plugin-chai": "^0.0.1",
     "eslint-plugin-chai-expect": "^2.0.1",
     "eslint-plugin-mocha": "^6.2.0",
