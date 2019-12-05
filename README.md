@@ -7,7 +7,9 @@ SiteAuditor is a simple tool which,
 
 ## Usage
 
-Note: Make sure the configured site/page is reachable before using the tool.
+### Note:
+ * Make sure the configured site/page is reachable before using the tool.
+ * Also to generate asset manifests or to report diff, the build should have generated the source maps for the corresponding assets.
 
 Using command line:
 
@@ -37,24 +39,25 @@ module.exports = {
   baseUrl: 'https://www.abc.com',
   debugPort: 9222,
   pageConfig: '/<setup-script-to-perform-login-and-other-stuff>.js',
-  includeUrlPattern: '<url-pattern>',
-  excludeUrlPattern: '<url-pattern>',
+  includeUrlPattern: '<url-path-to-convert-to-disk-path>',
+  excludeUrlPattern: '<url-pattern-to-exclude-from-tracing>',
   printOnlyFailedPages: true,
   chrome: {
-    additionalArguments: [],
+    additionalArguments: ['additional args for chrome'],
     emulatedFormFactor : '<mobile/desktop (default)>',
     headless: true,
     marker: '<rum_marker>' // (optional) if not present tracing will be done until LoadEventFired
-    userAgent : '<user-agent>',
+    userAgent : '<user-agent-to-track-mobile-pages>',
   },
   assetManifest: {
+    // In case js has source maps but css does not, then the manifests can be generated only for scripts
     includedTypes: ['script'],
     buildDir: '<path-where-build-output-of-application-resides>',
     targetDir: '<dir-to-store-asset-manifests-from-current-run>',
     diffReport: {
-    oldManifestDir : '<asset-manifests-dir-path-from-prev-commit-for-comparison>'
+      oldManifestDir : '<asset-manifests-dir-path-from-prev-commit-for-comparison>'
     },
-    encoding: 'br'
+    encoding: 'br' // brotli compression or other formats
   },
   budgets: [
     {
@@ -63,7 +66,7 @@ module.exports = {
       "resourceSizes": [
         {
           "resourceType": "script",
-          "budget": 300
+          "budget": 300 // size in KB
         },
         {
           "resourceType": "stylesheet",
