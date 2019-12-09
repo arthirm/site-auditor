@@ -48,6 +48,7 @@ module.exports = {
     headless: true,
     marker: '<rum_marker>' // (optional) if not present tracing will be done until LoadEventFired
     userAgent : '<user-agent-to-track-mobile-pages>',
+    traceTimeout : '<timeout-in-ms>'
   },
   assetManifest: {
     // In case js has source maps but css does not, then the manifests can be generated only for scripts
