@@ -42,6 +42,7 @@ module.exports = {
   includeUrlPattern: '<url-path-to-convert-to-disk-path>',
   excludeUrlPattern: '<url-pattern-to-exclude-from-tracing>',
   printOnlyFailedPages: true,
+  baseDir : '<base-dir-of-the-app>'
   chrome: {
     additionalArguments: ['additional args for chrome'],
     emulatedFormFactor : '<mobile/desktop (default)>',
@@ -51,6 +52,7 @@ module.exports = {
     traceTimeout : '<timeout-in-ms>'
   },
   assetManifest: {
+    // Type of assets for which manifests need to be generated
     // In case js has source maps but css does not, then the manifests can be generated only for scripts
     includedTypes: ['script'],
     buildDir: '<path-where-build-output-of-application-resides>',
