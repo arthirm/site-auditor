@@ -35,7 +35,7 @@ const Runner = require('site-auditor');
 ## Sample Configuration
 
 ```js
-module.exports = {    
+module.exports = {
   baseUrl: 'https://www.abc.com',
   debugPort: 9222,
   pageConfig: '/<setup-script-to-perform-login-and-other-stuff>.js',
@@ -90,7 +90,6 @@ module.exports = {
 *                                                                  *
 ********************************************************************
 
-Audit Summary
 ╔══════╤════════╤══════════════╤═════════════════════════════╤════════════════════════════╤═══════════════════════════╤══════════╗
 ║ Page │ Type   │ Exceeded/Not │ Current size (Uncompressed) │ Size Limits (Uncompressed) │ Difference (Uncompressed) │ Url      ║
 ╟──────┼────────┼──────────────┼─────────────────────────────┼────────────────────────────┼───────────────────────────┼──────────╢

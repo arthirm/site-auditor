@@ -2,7 +2,7 @@
 
 const chai = require('chai');
 const expect = chai.expect;
-const { AuditBudget, printSummaryAndGetFailedResources } = require('../../../../lib/audits/asset-size/audit-budget');
+const { AuditBudget, printAuditSummaryAndGetFailedResources } = require('../../../../lib/audits/asset-size/audit-budget');
 
 describe('AuditBudget', function() {
   let config, page;
@@ -64,7 +64,7 @@ describe('AuditBudget', function() {
     }).to.contain(/Warning: Budget result is undefined*/);
   });
 
-  it('printSummaryAndGetFailedResources returns failed audits', function() {
+  it('printAuditSummaryAndGetFailedResources returns failed audits', function() {
     const auditResults = [{
       page: {
         url:'base/foo',
@@ -78,8 +78,26 @@ describe('AuditBudget', function() {
       }]
     }];
 
-    const failedResources = printSummaryAndGetFailedResources(auditResults, config);
+    const failedResources = printAuditSummaryAndGetFailedResources(auditResults, config);
     expect(failedResources[0]).equals(auditResults[0].audits[0]);
+  });
+
+  it('printAuditSummaryAndGetFailedResources does not return failed audits if there is none', function() {
+    const auditResults = [{
+      page: {
+        url:'base/foo',
+        relativePath: '/foo',
+      },
+      audits: [ {
+        size: 700, // Bytes
+        sizeOverBudget: -40, // Bytes
+        budget: 740, // KB
+        resourceType: 'script'
+      }]
+    }];
+
+    const failedResources = printAuditSummaryAndGetFailedResources(auditResults, config);
+    expect(failedResources).to.deep.equal([]);
   });
 
 });

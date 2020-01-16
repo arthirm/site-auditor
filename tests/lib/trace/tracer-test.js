@@ -1,10 +1,10 @@
 'use strict';
 
-const Tracer = require('../../lib/trace/tracer');
+const Tracer = require('../../../lib/trace/tracer');
 const chai = require('chai');
 const expect = chai.expect;
 const chaiAsPromised = require('chai-as-promised');
-const StaticServer = require('./utils/http-server').StaticServer;
+const StaticServer = require('../utils/http-server').StaticServer;
 
 describe('Tracer', function() {
   let server;
@@ -32,6 +32,7 @@ describe('Tracer', function() {
     };
     const tracer = new Tracer(page);
     const pageResult = await tracer.trace();
+    // Page result does not include 'afterrum.js' since it loads after the rum marker is triggered
     expect(pageResult.length).equals(2);
     expect(pageResult[0].url).equals('http://localhost:3006/index.html');
     expect(pageResult[1].url).equals('http://localhost:3006/js/index.js');

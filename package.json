@@ -5,7 +5,7 @@
   "scripts": {
     "lint": "eslint .",
     "prettier": "prettier --check '{lib,tests}/**/*.js' --write",
-    "test": "mocha tests/lib/*-test.js tests/lib/audits/asset-size/*-test.js"
+    "test": "mocha tests/lib/*-test.js tests/lib/audits/asset-size/*-test.js tests/lib/trace/*-test.js"
   },
   "bin": {
     "site-auditor": "bin/site-auditor"
