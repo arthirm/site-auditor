@@ -18,60 +18,60 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
-"@tracerbench/find-chrome@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@tracerbench/find-chrome/-/find-chrome-1.1.0.tgz#ed4eaa40cadd53ec1f44c2a7c9f0eb19d21059f5"
-  integrity sha512-qYeZ1QtXtdF0OSMMbbO54i4G9L5kxcitJiBbkCLci6tOQht1diXUKWCZyYYWFbXkVd67MpjsXRdhAaSuGoPJnQ==
+"@tracerbench/find-chrome@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@tracerbench/find-chrome/-/find-chrome-1.2.0.tgz#6a71f080ffff8d69d817df127650a0ec226c27aa"
+  integrity sha512-es9tJkxj5ZGndlyhLe5YuXdvXT8WqXo6gOZk2ssfJmIhRw/aUnJruYzFk3K8qH/be+pjOwQX1vsGI1gK76dP/g==
   dependencies:
-    chrome-launcher "^0.11.2"
+    chrome-launcher "^0.12.0"
 
-"@tracerbench/message-transport@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@tracerbench/message-transport/-/message-transport-1.1.0.tgz#ba5f45706b109f734b9404db9ad9bc06043e91f9"
-  integrity sha512-fI7+wuvcEWuqiRRraeejNTr3x9mvykfArN1Pu2K9IhEb8Li7mj9XpXgt5fPBCWcBXNTB1amaQsCaxLgknzohPQ==
+"@tracerbench/message-transport@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@tracerbench/message-transport/-/message-transport-1.2.0.tgz#f75d56ad0d2f1ea38946e8d79934ec7bd20e9dc7"
+  integrity sha512-OealxVa0jVyNVInjfhAwvr6z8/hIUtfFAn0DP30NoWAo37tbwl3p9pgfyMWmix2kmFmIKBpcMcJpBjzbd6wfCA==
 
-"@tracerbench/protocol-connection@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@tracerbench/protocol-connection/-/protocol-connection-1.1.0.tgz#18fa2c7226db58be90e3683f62310917b5ee01ef"
-  integrity sha512-rE3NoUQzLATy2GY24cbSZa91eYtUr3LlaE2ACLVSmZ4S1WZfX0mUMGpV66NkUneCmiP81h9fEukPmMIB7Nujlg==
+"@tracerbench/protocol-connection@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@tracerbench/protocol-connection/-/protocol-connection-1.2.0.tgz#0c736fce2f900e76e863286311a51c810cccfc73"
+  integrity sha512-84nVBs4BfzZ41I0Yv2Ca2H8lclw5/lr83Ra9mcHy9WCc9V23WF6cB/9tsK4+7yvovN0N0KpJWAluf+TkQMZOUA==
   dependencies:
-    "@tracerbench/message-transport" "^1.1.0"
-    "@tracerbench/protocol-transport" "^1.1.0"
+    "@tracerbench/message-transport" "^1.2.0"
+    "@tracerbench/protocol-transport" "^1.2.0"
     race-cancellation "^0.4.1"
 
-"@tracerbench/protocol-transport@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@tracerbench/protocol-transport/-/protocol-transport-1.1.0.tgz#41168f1cd871f314de3908880a86856f25f369ae"
-  integrity sha512-plbZuOemj8kTQUUnygrqZ6zw7RKzC8gjrddmZsDqQd8qeri1RkjR6TWMETkg0/CneN883bs8OuhJQ4bTlZcxsA==
+"@tracerbench/protocol-transport@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@tracerbench/protocol-transport/-/protocol-transport-1.2.0.tgz#4d54824118f2a0d8c1b74f7b6f53816507d20d2f"
+  integrity sha512-FePY6aKm4w2UR/LUzFYhheT5SV9AWTl+Xqk4c9oq27pa4erfwXgbM8osCnAP4C3MCxn4UPxnwI7oOzLU/4PwLQ==
   dependencies:
-    "@tracerbench/message-transport" "^1.1.0"
+    "@tracerbench/message-transport" "^1.2.0"
     race-cancellation "^0.4.1"
 
-"@tracerbench/spawn-chrome@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@tracerbench/spawn-chrome/-/spawn-chrome-1.1.0.tgz#859f046198dd60a2bd64c2332f877f7d03401759"
-  integrity sha512-w81pOxXEhH1w5E43HVx0Dbv/EwOylttF/pp7joksoE8AGNOOTky++OlPbHongaaIFP7HRFHWYwj++0jOGM54mw==
+"@tracerbench/spawn-chrome@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@tracerbench/spawn-chrome/-/spawn-chrome-1.2.0.tgz#be133e1579c62454c3b3da42ad1cb8cd2fde6ee3"
+  integrity sha512-ht4StGdwAMNlBXu9uOQsVM64mOrNHPrAtdRZh/vwVlP+H71iQpXFzcbSYrDsRZvSlMNrj5CyWeaFBUlQNJmn5g==
   dependencies:
-    "@tracerbench/find-chrome" "^1.1.0"
-    "@tracerbench/spawn" "^1.1.0"
+    "@tracerbench/find-chrome" "^1.2.0"
+    "@tracerbench/spawn" "^1.2.0"
     tmp "^0.1.0"
 
-"@tracerbench/spawn@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@tracerbench/spawn/-/spawn-1.1.0.tgz#5ba9953a05b5fef5d907874c38beee61da5b1a84"
-  integrity sha512-2aMNzxTUHGjqDrYpuZtPdZuCiNvkCe/I3vDTENFvaLNQcrGuNSHxmM4esmSY1qR60BAmEkfMDWCK9jwNC5gOCQ==
+"@tracerbench/spawn@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@tracerbench/spawn/-/spawn-1.2.0.tgz#28783283229ad65ca68f5d28ce377b41e9d286af"
+  integrity sha512-nuupj9/OcrLnkPKgtXw9iKgPuJ4nSHpYjQ5quCRo5xi9o01X9ZRVBu+Fgcms+4XmL3iFyvaTfXUrkaL4c7ASyA==
   dependencies:
-    "@tracerbench/message-transport" "^1.1.0"
+    "@tracerbench/message-transport" "^1.2.0"
     debug "^4.1.1"
-    execa "^3.1.0"
+    execa "^3.3.0"
     race-cancellation "^0.4.1"
 
-"@tracerbench/websocket-message-transport@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@tracerbench/websocket-message-transport/-/websocket-message-transport-1.1.0.tgz#5ad287e42a50d05eff234dbfa02d5e7ccf17e51b"
-  integrity sha512-c5Fi5lC8pfbRf4UOXIL7jbSBFZq348lb1gtqE7DykXyXoxIr39cNbGkqoovK6SNx8fk7cPTiVo246ZJFtRxSGw==
+"@tracerbench/websocket-message-transport@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@tracerbench/websocket-message-transport/-/websocket-message-transport-1.2.0.tgz#4b17734549d44896fc416187353ab650b1a9dfed"
+  integrity sha512-6/a/dWQoPrAlX2NmEhjxFk9TsyrmggDuL2KO/E9+KwPZcXwlH3rJ9N2hBg2FlXYyfoTghoRpElMZiGdHO3PSGQ==
   dependencies:
-    "@tracerbench/message-transport" "^1.1.0"
+    "@tracerbench/message-transport" "^1.2.0"
     race-cancellation "^0.4.1"
     ws "^7.1.2"
 
@@ -220,24 +220,24 @@ check-error@^1.0.2:
   resolved "https://registry.yarnpkg.com/check-error/-/check-error-1.0.2.tgz#574d312edd88bb5dd8912e9286dd6c0aed4aac82"
   integrity sha1-V00xLt2Iu13YkS6Sht1sCu1KrII=
 
-chrome-debugging-client@^1.0.3:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/chrome-debugging-client/-/chrome-debugging-client-1.1.0.tgz#df7040a8386ab0f1285300ba05e2dad85cb85809"
-  integrity sha512-6NFPeytsmf8WwqusTmrUZJMCLgiFj2zTIWfhYksml8hB6UUnTYwSn+GLV5Drrgf1px6LPeex1iJoVBhiyMIjnw==
+chrome-debugging-client@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/chrome-debugging-client/-/chrome-debugging-client-1.2.0.tgz#23efc68b75b57c2b8cbdbdb99997cae01f0a31ea"
+  integrity sha512-GtC79nrKEUSZqwlzdFl1ULgYMqJmRcoI9pwLITDzQCzFHuvSDw3IFbAsMAnzSYyKo5AXa6C2uddkxG2oocu+xg==
   dependencies:
-    "@tracerbench/find-chrome" "^1.1.0"
-    "@tracerbench/message-transport" "^1.1.0"
-    "@tracerbench/protocol-connection" "^1.1.0"
-    "@tracerbench/spawn" "^1.1.0"
-    "@tracerbench/spawn-chrome" "^1.1.0"
-    "@tracerbench/websocket-message-transport" "^1.1.0"
+    "@tracerbench/find-chrome" "^1.2.0"
+    "@tracerbench/message-transport" "^1.2.0"
+    "@tracerbench/protocol-connection" "^1.2.0"
+    "@tracerbench/spawn" "^1.2.0"
+    "@tracerbench/spawn-chrome" "^1.2.0"
+    "@tracerbench/websocket-message-transport" "^1.2.0"
     debug "^4.1.1"
     race-cancellation "^0.4.1"
 
-chrome-launcher@^0.11.2:
-  version "0.11.2"
-  resolved "https://registry.yarnpkg.com/chrome-launcher/-/chrome-launcher-0.11.2.tgz#c9a248dbccd3a08565553acf61adff879bcc982c"
-  integrity sha512-jx0kJDCXdB2ARcDMwNCtrf04oY1Up4rOmVu+fqJ5MTPOOIG8EhRcEU9NZfXZc6dMw9FU8o1r21PNp8V2M0zQ+g==
+chrome-launcher@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/chrome-launcher/-/chrome-launcher-0.12.0.tgz#08db81ef0f7b283c331df2c350e780c38bd0ce3a"
+  integrity sha512-rBUP4tvWToiileDi3UR0SbWKoUoDCYTRmVND2sdoBL1xANBgVz8V9h1yQluj3MEQaBJg0fRw7hW82uOPrJus7A==
   dependencies:
     "@types/node" "*"
     is-wsl "^2.1.0"
@@ -385,10 +385,10 @@ destroy@~1.0.4:
   resolved "https://registry.yarnpkg.com/destroy/-/destroy-1.0.4.tgz#978857442c44749e4206613e37946205826abd80"
   integrity sha1-l4hXRCxEdJ5CBmE+N5RiBYJqvYA=
 
-devtools-protocol@^0.0.704903:
-  version "0.0.704903"
-  resolved "https://registry.yarnpkg.com/devtools-protocol/-/devtools-protocol-0.0.704903.tgz#bac5b5f2d475cf0f167651b0b94156df607def26"
-  integrity sha512-2a7t49/xtvY1Q6ayUICKUvo4z03noSzTAKXRKMLXEn8zk/ugHcyCcDMVb/Hsf+vV2E75gE8TQVyQEg02JBnrYA==
+devtools-protocol@^0.0.737833:
+  version "0.0.737833"
+  resolved "https://registry.yarnpkg.com/devtools-protocol/-/devtools-protocol-0.0.737833.tgz#2fbeeca7874062160e4bde8ca85b0b2ebbebaa70"
+  integrity sha512-kFYx3vg7/Mmem5AbMiukfPatuCi+wc6dT9p+fkomoZnEKAG51TK36W348QM/TSeg97bXfFYzeq7McjfRVqWDvw==
 
 diff@3.5.0:
   version "3.5.0"
@@ -611,10 +611,10 @@ etag@~1.8.1:
   resolved "https://registry.yarnpkg.com/etag/-/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"
   integrity sha1-Qa4u62XvpiJorr/qg6x9eSmbCIc=
 
-execa@^3.1.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/execa/-/execa-3.2.0.tgz#18326b79c7ab7fbd6610fd900c1b9e95fa48f90a"
-  integrity sha512-kJJfVbI/lZE1PZYDI5VPxp8zXPO9rtxOkhpZ0jMKha56AI9y2gGVC6bkukStQf0ka5Rh15BA5m7cCCH4jmHqkw==
+execa@^3.3.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/execa/-/execa-3.4.0.tgz#c08ed4550ef65d858fac269ffc8572446f37eb89"
+  integrity sha512-r9vdGQk4bmCuK1yKQu1KTwcT2zwfWdbdaXfCtAh+5nU/4fSX+JAb7vZGvI5naJrQlvONrEB20jeruESI69530g==
   dependencies:
     cross-spawn "^7.0.0"
     get-stream "^5.0.0"
