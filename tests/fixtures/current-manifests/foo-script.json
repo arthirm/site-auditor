@@ -1,6 +1,9 @@
 {
   "routeName":"/abc",
   "filetype":"js",
+  "totalCompressedSize" : "113 KB",
+  "totalUncompressedSize": "735 KB",
+  "totalRawUncompressedSize": 735,
   "files":[
      {
         "bundleName":"fixtures/assets/foo.min.js",
