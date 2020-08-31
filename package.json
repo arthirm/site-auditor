@@ -17,7 +17,7 @@
     "chrome-debugging-client": "^1.2.0",
     "cli-table3": "^0.5.1",
     "deep-diff": "^1.0.2",
-    "devtools-protocol": "^0.0.737833",
+    "devtools-protocol": "^0.0.802093",
     "eslint": "^5.10.0",
     "eslint-plugin-chai": "^0.0.1",
     "eslint-plugin-chai-expect": "^2.0.1",
