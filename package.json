@@ -1,6 +1,6 @@
 {
   "name": "site-auditor",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "A tool to audit asset size for your app and report failures",
   "scripts": {
     "lint": "eslint .",
