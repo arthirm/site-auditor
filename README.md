@@ -53,8 +53,9 @@ module.exports = {
   },
   assetManifest: {
     // Type of assets for which manifests need to be generated
-    // In case js has source maps but css does not, then the manifests can be generated only for scripts
-    includedTypes: ['script'],
+    includedTypes: ['script', 'stylesheet'],
+    // In case js has source maps but css does not, then this config is to indicate that source-map-explorer should be used only for scripts and not css but the manifest files should be generated for both
+    typesWithoutSourceMap: ['stylesheet'],
     buildDir: '<path-where-build-output-of-application-resides>',
     targetDir: '<dir-to-store-asset-manifests-from-current-run>',
     diffReport: {
