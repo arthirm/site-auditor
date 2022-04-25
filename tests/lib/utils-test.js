@@ -30,5 +30,18 @@ describe('Utils', function() {
         ConfigUtils.validate(config);
       }).to.throw(/'debugPort' not configured in config file.*/);
     });
+
+    it('throws if both printAuditSummary and diffReport is not defined in config', function() {
+      let config = {
+        debugPort: 9222,
+        baseUrl: '/url',
+        budgets: {},
+        includeUrlPattern: '/url',
+      };
+      expect(function() {
+        ConfigUtils.validate(config);
+      }).to.throw(/Either printAuditSummary or diffReport should be configured to view the results*/);
+    });
+
   });
 });

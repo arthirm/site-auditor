@@ -41,6 +41,7 @@ module.exports = {
   pageConfig: '/<setup-script-to-perform-login-and-other-stuff>.js',
   includeUrlPattern: '<url-path-to-convert-to-disk-path>',
   excludeUrlPattern: '<url-pattern-to-exclude-from-tracing>',
+  printAuditSummary: true, // (optional) defaults to true. Either audit summary or diff report should be enabled
   printOnlyFailedPages: true,
   baseDir : '<base-dir-of-the-app>'
   chrome: {
